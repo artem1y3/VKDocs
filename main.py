@@ -1,8 +1,9 @@
 import vk
 import urllib
+from const import TOKEN
 
 def show_docs(docs):
-    i = 0
+    i = 1
     for doc in docs['items']:
         for key,att in doc.items():
             print(key,att)
@@ -15,23 +16,25 @@ def load_docs(dict, count):
     # urllib.request.urlretrieve(url, './25.psd')
     if count>dict['count']:
         print('Введено число превышающее количество')
+        return
     i = 1
     for doc in dict['items']:
         urllib.request.urlretrieve(doc['url'],'./files/{}'.format(doc['title']))
-        print('Загружен: {} файл(ов) из {}'.format(i,count))
+        print('Загружено: {} файл(ов) из {}'.format(i,count))
         i += 1
     print('Загрузка завершена!')
 
 
 def main():
     count = 2
-    session = vk.Session(access_token='bc04953d549913e2e3f6888152e6e4e9a1c7b1048bbc66831e720f8b8e0a21801edd52acd36dc3f8a4cdc')
+    session = vk.Session(access_token=TOKEN)
     api = vk.API(session,v = 5.74)
     # print(api.users.get(user_ids=1))
     docs = api.docs.search(q='site.psd',offset=0, search_own=0, count=count)
-    print(docs)
+    print('==Обнаружено {} файл(ов)=='.format(docs['count']))
+    # print(docs)
     show_docs(docs)
-    load_docs(docs,count)
+    # load_docs(docs,count)
 
 
 
