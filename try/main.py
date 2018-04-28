@@ -20,7 +20,7 @@ def load_docs(dict, count):
     i = 1
     for doc in dict['items']:
         urllib.request.urlretrieve(doc['url'],'./files/{}'.format(doc['title']))
-        print('Загружено: {} файл(ов) из {}'.format(i, count))
+        print('Загружено: {} файл(ов) из {}'.format(i,count))
         i += 1
     print('Загрузка завершена!')
 
