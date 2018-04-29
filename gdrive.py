@@ -10,7 +10,7 @@ class Gdrive(object):
 
     def upload(self, filepath):
         drive = GoogleDrive(self.gauth)
-        file1 = drive.CreateFile()  # Create GoogleDriveFile instance with title 'Hello.txt'.
+        file1 = drive.CreateFile("file1.zip")  # Create GoogleDriveFile instance with title 'Hello.txt'.
         file1.SetContentFile(filepath)  # Set content of the file from given string.
         file1.Upload()
 
