@@ -8,9 +8,9 @@ class Gdrive(object):
         self.gauth.LocalWebserverAuth()  # Creates local webserver and auto handles authentication.
         # self.gauth.CommandLineAuth() # Creates local webserver and auto handles authentication.
 
-    def upload(self, filepath):
+    def upload(self, filepath, title):
         drive = GoogleDrive(self.gauth)
-        file1 = drive.CreateFile("file1.zip")  # Create GoogleDriveFile instance with title 'Hello.txt'.
+        file1 = drive.CreateFile({'title': title})  # Create GoogleDriveFile instance with title 'Hello.txt'.
         file1.SetContentFile(filepath)  # Set content of the file from given string.
         file1.Upload()
 

@@ -51,9 +51,10 @@ class VkParse(object):
         try:
             newzip = zipfile.ZipFile(self.folderPath + "/" + self.search + '.zip', 'w')  # создаем архив
             print("Архив создан!")
-
+            print("Загрузка файлов в архив: ")
             for file in lst:
-                newzip.write(file)
+                newzip.write(self.folderPath + "/" + self.search + "/" + file, "/" + file)
+                print(file)
 
             newzip.close()  # закрываем архив
         except:
