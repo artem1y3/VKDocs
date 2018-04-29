@@ -9,11 +9,14 @@ class Gdrive(object):
         # self.gauth.CommandLineAuth() # Creates local webserver and auto handles authentication.
 
     def upload(self, filepath, title):
+        print("Загрузка на облако началась...")
         drive = GoogleDrive(self.gauth)
         file1 = drive.CreateFile({'title': title})  # Create GoogleDriveFile instance with title 'Hello.txt'.
         file1.SetContentFile(filepath)  # Set content of the file from given string.
         file1.Upload()
+        print("Загрузка завершена!")
 
+        
         # # Auto-iterate through all files that matches this query
         # file_list = drive.ListFile({'q': "'root' in parents and trashed=false"}).GetList()
         # for file1 in file_list:

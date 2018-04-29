@@ -28,7 +28,7 @@ class VkParse(object):
     def load_docs(self, dict, count):
         # url = ''
         # urllib.request.urlretrieve(url, './25.psd')
-        if count > dict['count']:
+        if int(count) > int(dict['count']):
             print('Введено число превышающее количество')
             return
         i = 1
