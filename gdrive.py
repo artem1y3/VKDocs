@@ -16,7 +16,7 @@ class Gdrive(object):
         file1.Upload()
         print("Загрузка завершена!")
 
-        
+
         # # Auto-iterate through all files that matches this query
         # file_list = drive.ListFile({'q': "'root' in parents and trashed=false"}).GetList()
         # for file1 in file_list:
